@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Nanami AI | Customer Intelligence</title>
+
+    <meta
+        name="description"
+        content="Nanami AI customer intelligence dashboard"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         LOGIN SCREEN
+    ====================================================== -->
+
+    <div
+        id="loginScreen"
+        class="login-screen"
+    >
+
+        <div class="login-background-glow glow-one"></div>
+        <div class="login-background-glow glow-two"></div>
+
+        <div class="login-card">
+
+            <div class="login-brand">
+
+                <div class="brand-logo">
+                    N
+                </div>
+
+                <div>
+                    <div class="brand-name">
+                        NANAMI
+                    </div>
+
+                    <div class="brand-subtitle">
+                        AI CUSTOMER INTELLIGENCE
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="login-heading">
+
+                <span class="eyebrow">
+                    WELCOME BACK
+                </span>
+
+                <h1>
+                    Turn feedback into
+                    <span>intelligence.</span>
+                </h1>
+
+                <p>
+                    Analyze customer feedback,
+                    discover patterns and make
+                    smarter decisions with Nanami AI.
+                </p>
+
+            </div>
+
+
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label for="loginEmail">
+                        Email address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="loginPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-button login-button"
+                >
+                    <span>Enter Nanami AI</span>
+                    <span class="button-arrow">→</span>
+                </button>
+
+            </form>
+
+
+            <div class="login-footer">
+                AI-powered customer intelligence
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         APPLICATION
+    ====================================================== -->
+
+    <div
+        id="app"
+        class="app hidden"
+    >
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-top">
+
+                <div class="sidebar-brand">
+
+                    <div class="brand-logo small">
+                        N
+                    </div>
+
+                    <div>
+
+                        <div class="brand-name">
+                            NANAMI
+                        </div>
+
+                        <div class="brand-subtitle">
+                            AI INTELLIGENCE
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="online-status">
+
+                    <span class="status-dot"></span>
+
+                    AI SYSTEM ONLINE
+
+                </div>
+
+            </div>
+
+
+            <nav class="navigation">
+
+                <div class="nav-label">
+                    WORKSPACE
+                </div>
+
+
+                <button
+                    class="nav-item active"
+                    data-target="intelligence"
+                    type="button"
+                >
+
+                    <span class="nav-icon">✦</span>
+
+                    <span>
+                        AI Intelligence
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-target="dashboard"
+                    type="button"
+                >
+
+                    <span class="nav-icon">◈</span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-target="memory"
+                    type="button"
+                >
+
+                    <span class="nav-icon">◎</span>
+
+                    <span>
+                        AI Memory
+                    </span>
+
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-info">
+
+                    <div class="sidebar-info-icon">
+                        ✨
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Nanami AI
+                        </strong>
+
+                        <span>
+                            Customer intelligence
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="logoutButton"
+                    class="logout-button"
+                    type="button"
+                >
+                    Sign out
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =============================================
+                 TOP BAR
+            ============================================== -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <div class="topbar-kicker">
+                        CUSTOMER INTELLIGENCE PLATFORM
+                    </div>
+
+                    <div class="topbar-title">
+                        Nanami AI
+                    </div>
+
+                </div>
+
+
+                <div class="topbar-right">
+
+                    <div class="live-pill">
+
+                        <span class="status-dot"></span>
+
+                        Live analysis
+
+                    </div>
+
+                    <div class="user-pill">
+                        AI
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =============================================
+                 AI INTELLIGENCE
+            ============================================== -->
+
+            <section
+                id="intelligence"
+                class="page-section intelligence-section"
+            >
+
+                <div class="hero-grid">
+
+
+                    <!-- HERO INTRO -->
+
+                    <div class="hero-copy">
+
+                        <div class="section-badge">
+                            <span>✦</span>
+                            AI CUSTOMER INTELLIGENCE
+                        </div>
+
+
+                        <h1>
+                            Ask your customer
+                            data anything.
+                        </h1>
+
+
+                        <p>
+                            Nanami analyzes customer feedback,
+                            detects sentiment, identifies root
+                            causes and recommends practical
+                            actions.
+                        </p>
+
+
+                        <div class="hero-stats">
+
+                            <div class="hero-stat">
+
+                                <strong>
+                                    50
+                                </strong>
+
+                                <span>
+                                    Feedback records
+                                </span>
+
+                            </div>
+
+
+                            <div class="hero-stat">
+
+                                <strong>
+                                    AI
+                                </strong>
+
+                                <span>
+                                    Multi-agent analysis
+                                </span>
+
+                            </div>
+
+
+                            <div class="hero-stat">
+
+                                <strong>
+                                    24/7
+                                </strong>
+
+                                <span>
+                                    Intelligence
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AI ORB -->
+
+                    <div class="hero-visual">
+
+                        <div class="orb-ring ring-one"></div>
+                        <div class="orb-ring ring-two"></div>
+
+                        <div class="ai-orb">
+
+                            <div class="orb-core">
+                                N
+                            </div>
+
+                            <span class="orb-label">
+                                NANAMI AI
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     CHAT CARD
+                ========================================== -->
+
+                <div class="chat-card">
+
+                    <div class="chat-card-header">
+
+                        <div>
+
+                            <div class="card-kicker">
+                                INTELLIGENCE ENGINE
+                            </div>
+
+                            <h2>
+                                Analyze customer feedback
+                            </h2>
+
+                        </div>
+
+
+                        <div class="engine-status">
+
+                            <span class="status-dot"></span>
+
+                            Ready
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="chatMessages"
+                        class="chat-messages"
+                    >
+
+                        <div class="message ai-message">
+
+                            <div class="message-avatar ai-avatar">
+                                N
+                            </div>
+
+                            <div class="message-content">
+
+                                <div class="message-name">
+                                    Nanami AI
+                                </div>
+
+                                <p>
+                                    Hello! Ask me about customer
+                                    feedback, complaints, sentiment,
+                                    product issues or possible
+                                    solutions.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SUGGESTIONS -->
+
+                    <div class="suggestions">
+
+                        <span class="suggestions-label">
+                            TRY ASKING
+                        </span>
+
+
+                        <button
+                            type="button"
+                            onclick="useSuggestion(this)"
+                        >
+                            What are the main customer problems?
+                        </button>
+
+
+                        <button
+                            type="button"
+                            onclick="useSuggestion(this)"
+                        >
+                            Analyze Galaxy S25 battery complaints
+                        </button>
+
+
+                        <button
+                            type="button"
+                            onclick="useSuggestion(this)"
+                        >
+                            What solutions worked before?
+                        </button>
+
+                    </div>
+
+
+                    <!-- CHAT INPUT -->
+
+                    <form
+                        id="chatForm"
+                        class="chat-input-area"
+                    >
+
+                        <textarea
+                            id="question"
+                            rows="1"
+                            placeholder="Ask Nanami AI about your customers..."
+                        ></textarea>
+
+
+                        <button
+                            id="sendButton"
+                            type="submit"
+                            class="send-button"
+                        >
+
+                            <span>
+                                Analyze
+                            </span>
+
+                            <strong>
+                                →
+                            </strong>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+                <!-- =========================================
+                     ANALYSIS PANEL
+                ========================================== -->
+
+                <div
+                    id="analysisPanel"
+                    class="analysis-panel hidden"
+                >
+
+                    <div class="analysis-header">
+
+                        <div>
+
+                            <div class="card-kicker">
+                                MULTI-AGENT RESULT
+                            </div>
+
+                            <h2>
+                                Intelligence report
+                            </h2>
+
+                        </div>
+
+                        <div class="analysis-badge">
+                            AI COMPLETE
+                        </div>
+
+                    </div>
+
+
+                    <div class="analysis-grid">
+
+
+                        <div class="analysis-card evidence-card">
+
+                            <div class="analysis-icon">
+                                ◈
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    CUSTOMER EVIDENCE
+                                </span>
+
+                                <h3>
+                                    Retrieved feedback
+                                </h3>
+
+                                <p id="ragOutput">
+                                    Waiting for analysis...
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="analysis-card">
+
+                            <div class="analysis-icon purple">
+                                ✦
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    SENTIMENT
+                                </span>
+
+                                <h3 id="sentimentOutput">
+                                    —
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="analysis-card">
+
+                            <div class="analysis-icon cyan">
+                                ◇
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    ROOT CAUSE
+                                </span>
+
+                                <h3 id="rootOutput">
+                                    —
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="analysis-card recommendation-card">
+
+                            <div class="analysis-icon green">
+                                ✓
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    RECOMMENDATION
+                                </span>
+
+                                <h3 id="recommendOutput">
+                                    —
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 DASHBOARD
+            ============================================== -->
+
+            <section
+                id="dashboard"
+                class="page-section dashboard-section"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <div class="section-badge">
+                            <span>◈</span>
+                            ANALYTICS
+                        </div>
+
+                        <h2>
+                            Customer overview
+                        </h2>
+
+                        <p>
+                            A live view of customer feedback
+                            across your dataset.
+                        </p>
+
+                    </div>
+
+
+                    <div class="dashboard-live">
+
+                        <span class="status-dot"></span>
+
+                        Connected to API
+
+                    </div>
+
+                </div>
+
+
+                <!-- KPI CARDS -->
+
+                <div class="kpi-grid">
+
+
+                    <div class="kpi-card purple-card">
+
+                        <div class="kpi-top">
+
+                            <span class="kpi-label">
+                                TOTAL FEEDBACK
+                            </span>
+
+                            <div class="kpi-icon">
+                                ◉
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="total"
+                            class="kpi-number"
+                        >
+                            —
+                        </div>
+
+                        <div class="kpi-bottom">
+                            Customer records analyzed
+                        </div>
+
+                    </div>
+
+
+                    <div class="kpi-card green-card">
+
+                        <div class="kpi-top">
+
+                            <span class="kpi-label">
+                                POSITIVE
+                            </span>
+
+                            <div class="kpi-icon">
+                                ↗
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="positive"
+                            class="kpi-number"
+                        >
+                            —
+                        </div>
+
+                        <div class="kpi-bottom">
+                            Positive customer signals
+                        </div>
+
+                    </div>
+
+
+                    <div class="kpi-card pink-card">
+
+                        <div class="kpi-top">
+
+                            <span class="kpi-label">
+                                NEGATIVE
+                            </span>
+
+                            <div class="kpi-icon">
+                                ↘
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="negative"
+                            class="kpi-number"
+                        >
+                            —
+                        </div>
+
+                        <div class="kpi-bottom">
+                            Issues requiring attention
+                        </div>
+
+                    </div>
+
+
+                    <div class="kpi-card cyan-card">
+
+                        <div class="kpi-top">
+
+                            <span class="kpi-label">
+                                AVG. RATING
+                            </span>
+
+                            <div class="kpi-icon">
+                                ★
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="rating"
+                            class="kpi-number"
+                        >
+                            —
+                        </div>
+
+                        <div class="kpi-bottom">
+                            Average customer rating
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CHARTS -->
+
+                <div class="charts-grid">
+
+
+                    <div class="chart-card">
+
+                        <div class="chart-header">
+
+                            <div>
+
+                                <span class="chart-kicker">
+                                    SENTIMENT DISTRIBUTION
+                                </span>
+
+                                <h3>
+                                    Customer sentiment
+                                </h3>
+
+                            </div>
+
+                            <div class="chart-symbol">
+                                ●
+                            </div>
+
+                        </div>
+
+
+                        <div class="chart-container">
+
+                            <canvas
+                                id="sentimentChart"
+                            ></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-card">
+
+                        <div class="chart-header">
+
+                            <div>
+
+                                <span class="chart-kicker">
+                                    ISSUE CATEGORIES
+                                </span>
+
+                                <h3>
+                                    Customer reports
+                                </h3>
+
+                            </div>
+
+                            <div class="chart-symbol cyan-symbol">
+                                ◆
+                            </div>
+
+                        </div>
+
+
+                        <div class="chart-container">
+
+                            <canvas
+                                id="categoryChart"
+                            ></canvas>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INSIGHTS -->
+
+                <div class="insights-grid">
+
+
+                    <div class="insight-card positive-insight">
+
+                        <div class="insight-icon">
+                            ↗
+                        </div>
+
+                        <div>
+
+                            <span>
+                                POSITIVE SIGNALS
+                            </span>
+
+                            <strong id="positiveInsight">
+                                —
+                            </strong>
+
+                            <p>
+                                Positive feedback records
+                                detected in the dataset.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="insight-card negative-insight">
+
+                        <div class="insight-icon">
+                            !
+                        </div>
+
+                        <div>
+
+                            <span>
+                                ATTENTION NEEDED
+                            </span>
+
+                            <strong id="negativeInsight">
+                                —
+                            </strong>
+
+                            <p>
+                                Customer records containing
+                                negative signals.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 AI MEMORY
+            ============================================== -->
+
+            <section
+                id="memory"
+                class="page-section memory-section"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <div class="section-badge">
+                            <span>◎</span>
+                            HINDSIGHT
+                        </div>
+
+                        <h2>
+                            AI Memory
+                        </h2>
+
+                        <p>
+                            Previously stored customer issues
+                            and successful solutions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="memory-card">
+
+                    <div class="memory-card-top">
+
+                        <div>
+
+                            <span class="chart-kicker">
+                                LONG-TERM CUSTOMER KNOWLEDGE
+                            </span>
+
+                            <h3>
+                                Previous solutions
+                            </h3>
+
+                        </div>
+
+                        <div class="memory-live">
+                            ● Memory active
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="timeline"
+                        class="timeline"
+                    >
+
+                        <div class="memory-loading">
+                            Loading Hindsight memories...
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 FOOTER
+            ============================================== -->
+
+            <footer class="footer">
+
+                <div>
+                    NANAMI AI
+                </div>
+
+                <span>
+                    Customer intelligence platform
+                </span>
+
+                <span>
+                    Powered by AI
+                </span>
+
+            </footer>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
